@@ -29,11 +29,12 @@ const projectData = [
     liveLink: "https://roast-daoa.wasmer.app/"
   },
   {
-    title: "Landing Page Roast Lab",
+    // BAGIAN YANG DIUPDATE
+    title: "Landing Page Rental Mobil",
     imgSrc: "/foto/web1.jpg", 
-    description: "Halaman web promosi yang responsif untuk Roast Lab, fokus pada penguatan branding dan penyampaian informasi produk kopi secara detail.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    liveLink: "https://roastlab.vercel.app/"
+    description: "Website landing page profesional untuk jasa rental mobil yang dirancang responsif, menonjolkan katalog armada dengan visual menarik dan CTA yang efektif untuk konversi.",
+    tags: ["React", "Tailwind CSS", "Vite"],
+    liveLink: "https://landing-page-rentaldao.vercel.app/"
   },
   {
     title: "Landing Page SmartBudget",

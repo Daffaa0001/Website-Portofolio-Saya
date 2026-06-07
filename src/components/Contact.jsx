@@ -11,9 +11,9 @@ function Contact() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".contact-form, .socials", { 
-        scrollTrigger: { trigger: ".contact", start: "top 80%" },
-        autoAlpha: 0, y: 80, duration: 1.2, stagger: 0.3,
+      gsap.from(".bento-card", { 
+        scrollTrigger: { trigger: contactRef.current, start: "top 80%" },
+        autoAlpha: 0, y: 30, duration: 0.8
       });
     }, contactRef); 
     return () => ctx.revert();
@@ -21,31 +21,34 @@ function Contact() {
 
   return (
     <section id="contact" className="contact section" ref={contactRef}>
-      <h2>Hubungi Saya</h2>
-      <div className="contact-container">
-        
+      <div className="section-header">
+        <h2>Hubungi Saya</h2>
+        <p className="section-subtitle">Mari berdiskusi untuk mewujudkan ide digital Anda.</p>
+      </div>
+      <div className="contact-container bento-card">
         <form onSubmit={handleSubmit} className="contact-form">
           {state.succeeded ? (
-            <div style={{padding: '1rem', textAlign: 'center', color: '#00ff88'}}>
-              <h3>[ STATUS: TERKIRIM ]</h3>
-              <p>Sistem telah menerima pesan Anda.</p>
+            <div className="success-message">
+              <h3>Pesan Terkirim</h3>
+              <p>Terima kasih, saya akan segera merespons pesan Anda.</p>
             </div>
           ) : (
             <>
-              <input id="nama" type="text" name="Nama" placeholder="> Nama Anda" required />
-              <input id="email" type="email" name="Email" placeholder="> Email Anda" required />
+              <input id="nama" type="text" name="Nama" placeholder="Nama Lengkap" required />
+              <input id="email" type="email" name="Email" placeholder="Alamat Email" required />
               <ValidationError prefix="Email" field="email" errors={state.errors} />
-              <textarea id="message" name="Pesan" placeholder="> Pesan Anda..." required></textarea>
+              <textarea id="message" name="Pesan" placeholder="Pesan Anda..." rows="5" required></textarea>
               <ValidationError prefix="Message" field="message" errors={state.errors} />
-              <button type="submit" disabled={state.submitting}>
-                {state.submitting ? "MENGIRIM..." : "KIRIM PESAN"}
+              <button type="submit" disabled={state.submitting} className="btn btn-primary">
+                {state.submitting ? "Mengirim..." : "Kirim Pesan"}
               </button>
             </>
           )}
         </form>
         
         <div className="socials">
-          <h3>Media Sosial</h3>
+          <h3>Mari Terhubung</h3>
+          <p>Temukan saya di platform profesional berikut:</p>
           <div className="icons">
             <a href="https://www.linkedin.com/in/muhammad-daffa-adnaputra-b659a4310/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
             <a href="https://www.instagram.com/mdaffaa_a/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
@@ -53,7 +56,6 @@ function Contact() {
             <a href="https://www.tiktok.com/@daapss__" target="_blank" rel="noopener noreferrer"><i className="fab fa-tiktok"></i></a>
           </div>
         </div>
-        
       </div>
     </section>
   );

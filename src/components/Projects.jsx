@@ -5,47 +5,46 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// DATA PROJECT
 const projectData = [
   {
     title: "Landing Page VinixRoastery",
-    imgSrc: "/foto/ui.jpg",
-    description: "Website landing page modern untuk kedai kopi VinixRoastery, dirancang untuk menampilkan menu unggulan dan suasana tempat dengan visual yang estetis.",
+    imgSrc: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=800&auto=format&fit=crop",
+    description: "Website landing page modern untuk kedai kopi VinixRoastery, dirancang dengan visual yang estetis.",
     tags: ["React", "Tailwind CSS", "GSAP"],
     liveLink: "https://vinixroastery.vercel.app/"
   },
   {
     title: "SmartBudget",
-    imgSrc: "/foto/web.jpg",
-    description: "Aplikasi manajemen keuangan pribadi yang membantu pengguna melacak arus kas (pemasukan & pengeluaran) serta mengatur anggaran bulanan secara efisien.",
+    imgSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    description: "Aplikasi manajemen keuangan pribadi untuk melacak arus kas dan mengatur anggaran secara efisien.",
     tags: ["PHP", "MySQL", "Bootstrap 5"],
     liveLink: "http://smartbudget.wasmer.app/"
   },
   {
     title: "VinixRoastery E-commerce",
-    imgSrc: "/foto/mobile.jpg",
-    description: "Platform toko online berbasis web untuk penjualan biji kopi, dilengkapi dengan katalog produk interaktif dan fitur keranjang belanja yang user-friendly.",
+    imgSrc: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop",
+    description: "Platform toko online penjualan biji kopi dengan katalog interaktif dan fitur keranjang belanja.",
     tags: ["PHP", "MySQL", "JavaScript"],
     liveLink: "https://roast-daoa.wasmer.app/"
   },
   {
     title: "Landing Page Rental Mobil",
-    imgSrc: "/foto/web1.jpg", 
-    description: "Website landing page profesional untuk jasa rental mobil yang dirancang responsif, menonjolkan katalog armada dengan visual menarik dan CTA yang efektif untuk konversi.",
-    tags: ["React", "Tailwind CSS", "Vite"],
+    imgSrc: "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=800&auto=format&fit=crop",
+    description: "Landing page profesional responsif yang menonjolkan katalog armada dengan CTA efektif.",
+    tags: ["React", "Tailwind", "Vite"],
     liveLink: "https://landing-page-rentaldao.vercel.app/"
   },
   {
     title: "Landing Page SmartBudget",
-    imgSrc: "/foto/web2.jpg",
-    description: "Halaman web informatif yang dirancang untuk memperkenalkan aplikasi SmartBudget, menampilkan fitur unggulan, serta panduan singkat pengelolaan keuangan.",
+    imgSrc: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop",
+    description: "Halaman web informatif untuk memperkenalkan fitur unggulan aplikasi SmartBudget.",
     tags: ["React", "Vite", "GSAP"],
     liveLink: "https://landingpage-smartbudget.vercel.app/"
   },
   {
     title: "Website Rental Mobil",
-    imgSrc: "/foto/web3.jpg", 
-    description: "Sistem informasi penyewaan mobil berbasis web yang memudahkan pelanggan dalam melihat katalog armada, cek spesifikasi, dan melakukan proses booking kendaraan.",
+    imgSrc: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop",
+    description: "Sistem informasi penyewaan mobil berbasis web untuk cek spesifikasi dan booking kendaraan.",
     tags: ["PHP", "MYSQL", "JavaScript"],
     liveLink: "https://rentyourcar.wasmer.app/"
   }
@@ -79,11 +78,10 @@ function Projects() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (gridRef.current) {
-        const projectCards = gridRef.current.children;
-        gsap.fromTo(projectCards, 
-          { autoAlpha: 0, y: 50 },
+        gsap.fromTo(gridRef.current.children, 
+          { autoAlpha: 0, y: 30 },
           {
-            autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.2,
+            autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.1,
             scrollTrigger: { trigger: gridRef.current, start: "top 80%" }
           }
         );
@@ -96,12 +94,14 @@ function Projects() {
   return (
     <>
       <section id="projects" className="projects section">
-        <h2>My Projects</h2>
+        <div className="section-header">
+          <h2>Proyek Saya</h2>
+          <p className="section-subtitle">Kumpulan karya yang telah saya kembangkan.</p>
+        </div>
         
         <div className="project-grid" ref={gridRef}>
           {projectData.slice(0, visibleCount).map((project, index) => (
-            <div className="project-card" key={index}>
-              {/* WRAPPER GAMBAR UNTUK EFEK LASER SCANNER */}
+            <div className="project-card bento-card" key={index}>
               <div className="img-wrapper">
                  <img src={project.imgSrc} alt={project.title} />
               </div>
@@ -113,24 +113,18 @@ function Projects() {
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-                <button
-                  className="btn view-btn open-modal-btn"
-                  onClick={() => openModal(project)}
-                >
-                  View Project
+                <button className="btn btn-outline" onClick={() => openModal(project)}>
+                  Detail Proyek
                 </button>
               </div>
             </div>
           ))}
         </div>
 
-        {/* TAMPILKAN LEBIH BANYAK WRAPPER */}
         {projectData.length > 3 && (
             <div className="show-more-container">
-                <button onClick={handleShowMore} className="btn-show-more">
-                    <span className="btn-text">
-                       {visibleCount >= projectData.length ? "TAMPILKAN LEBIH SEDIKIT" : "TAMPILKAN LEBIH BANYAK"}
-                    </span>
+                <button onClick={handleShowMore} className="btn btn-outline">
+                    {visibleCount >= projectData.length ? "Tampilkan Lebih Sedikit" : "Tampilkan Semua Proyek"}
                 </button>
             </div>
         )}

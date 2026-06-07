@@ -6,12 +6,12 @@ function Profile() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".text-content, .profile-img-wrapper", {
+      gsap.from(".fade-up", {
         autoAlpha: 0,
-        y: 60,
-        duration: 1.2,
-        stagger: 0.3,
-        delay: 0.5 
+        y: 30,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out"
       });
     }, profileRef);
 
@@ -21,38 +21,29 @@ function Profile() {
   return (
     <section id="home" className="profile section" ref={profileRef}>
       <div className="profile-content">
-        <div className="text">
-          <div className="terminal-welcome">
-            <span className="typewriter-text">{">"} SYSTEM_BOOT... ACCESS GRANTED.</span>
+        <div className="text-content">
+          <div className="status-badge fade-up">
+            <span className="dot"></span> Mahasiswa Sistem Informasi & Available for Work
           </div>
 
-          <div className="text-content">
-            <h1>Halo, Saya <br/><span>Muhammad Daffa</span></h1>
-            <p className="subtitle-code">{"<FrontEnd_Engineer />"}</p>
-            
-            {/* Status Panel Terminal untuk mengisi ruang */}
-            <ul className="hero-stats">
-               <li><span>[STATUS]</span> ONLINE & READY</li>
-               <li><span>[ROLE]</span> WEB DEVELOPMENT / UI DESIGN</li>
-               <li><span>[BASE]</span> INDONESIA</li>
-            </ul>
+          <h1 className="fade-up">Merancang solusi digital elegan,<br/><span>baris demi baris.</span></h1>
+          
+          <p className="subtitle fade-up">
+            Halo, saya <strong>Muhammad Daffa Adnaputra</strong>. Seorang Junior Full Stack Web Development & UI/UX Design yang berbasis di Tulungagung, Indonesia.
+          </p>
 
-            <div className="btn-group">
-              <a href="#about" className="btn">Tentang Saya</a>
-              <a href="#projects" className="btn btn-outline">Lihat Proyek</a>
-            </div>
+          <div className="btn-group fade-up">
+            <a href="#projects" className="btn btn-primary">Lihat Proyek</a>
+            <a href="#contact" className="btn btn-outline">Hubungi Saya</a>
           </div>
         </div>
         
-        <div className="profile-img-wrapper">
-          {/* FOTO ADA DI SINI. Pastikan file daps.png ada di dalam folder 'public/foto/' */}
+        <div className="profile-img-wrapper fade-up">
           <img 
             src="/foto/daps.png" 
             alt="Profil Daffa" 
             className="profile-img" 
           />
-          <div className="corner-tl"></div>
-          <div className="corner-br"></div>
         </div>
       </div>
     </section>

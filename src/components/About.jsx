@@ -9,10 +9,10 @@ function About() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".about-content", {
+      gsap.from(".bento-card", {
         autoAlpha: 0,
-        y: 50,
-        duration: 1,
+        y: 30,
+        duration: 0.8,
         scrollTrigger: {
           trigger: aboutRef.current,
           start: "top 80%"
@@ -25,19 +25,22 @@ function About() {
 
   return (
     <section id="about" className="about section" ref={aboutRef}>
-      <h2>Tentang Saya</h2>
-      <div className="about-content">
+      <div className="section-header">
+        <h2>Tentang Saya</h2>
+        <p className="section-subtitle">Mengenal lebih dekat latar belakang dan visi saya.</p>
+      </div>
+      <div className="about-content bento-card">
         <div className="about-text">
           <p>
-            Seorang pengembang web dengan fokus pada logika presisi, arsitektur <em>clean code</em>, dan antarmuka pengguna mekanikal yang interaktif. Tujuan saya adalah mengubah masalah sistem yang kompleks menjadi solusi digital yang elegan dan mudah digunakan.
+            Saya adalah Mahasiswa <strong>Sistem Informasi di Universitas Negeri Surabaya</strong> dengan pencapaian akademik IPK 3.75/4.00. Saya memiliki spesialisasi teknis yang mendalam dalam ranah <em>Full Stack Web Development</em> dan <em>UI/UX Design</em>.
           </p>
           <p>
-            Saya memiliki ketertarikan mendalam pada teknologi, mesin, dan bagaimana baris-baris kode dapat disusun layaknya roda gigi yang saling bertaut—menciptakan sistem yang tidak hanya fungsional, tetapi juga memiliki estetika visual yang kuat dan performa tinggi.
+            Dengan pengalaman profesional merancang strategi <em>Digital Marketing</em> yang berdampak tinggi hingga mengembangkan sistem E-Commerce, saya terbiasa menjembatani antara kebutuhan bisnis dan eksekusi teknis. Saya terampil menggunakan ekosistem web modern serta memiliki pemahaman manajemen server dasar seperti Linux dan AWS Cloud.
+          </p>
+          <p>
+            Fokus utama saya adalah membangun produk digital yang tidak hanya fungsional dan berorientasi pada hasil terukur, tetapi juga memiliki estetika visual yang kuat dan performa tinggi bagi pengguna.
           </p>
         </div>
-        
-        {/* Elemen Kosmetik Radar/Mesin di sudut kotak */}
-        <div className="about-decoration"></div>
       </div>
     </section>
   );

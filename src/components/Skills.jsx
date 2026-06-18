@@ -11,9 +11,9 @@ function Skills() {
     const ctx = gsap.context(() => {
       if (gridRef.current) {
         gsap.fromTo(gridRef.current.children, 
-          { autoAlpha: 0, y: 20 },
+          { autoAlpha: 0, y: 30, scale: 0.95 },
           {
-            autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "power2.out",
+            autoAlpha: 1, y: 0, scale: 1, duration: 1, stagger: 0.1, ease: "back.out(1.2)",
             scrollTrigger: { trigger: gridRef.current, start: "top 85%" }
           }
         );

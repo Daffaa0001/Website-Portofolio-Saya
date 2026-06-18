@@ -46,9 +46,10 @@ function Experience() {
     const ctx = gsap.context(() => {
       gsap.from(".exp-card", {
         autoAlpha: 0,
-        y: 30,
-        duration: 0.8,
-        stagger: 0.2,
+        y: 40,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: expRef.current,
           start: "top 80%"

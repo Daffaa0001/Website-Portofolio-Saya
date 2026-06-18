@@ -18,9 +18,9 @@ function Workflow() {
     const ctx = gsap.context(() => {
       if (flowRef.current) {
         gsap.fromTo(flowRef.current.children, 
-          { autoAlpha: 0, y: 30 },
+          { autoAlpha: 0, y: 40 },
           {
-            autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out",
+            autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.15, ease: "power3.out",
             scrollTrigger: { trigger: flowRef.current, start: "top 80%" }
           }
         );

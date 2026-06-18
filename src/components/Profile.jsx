@@ -8,10 +8,10 @@ function Profile() {
     const ctx = gsap.context(() => {
       gsap.from(".fade-up", {
         autoAlpha: 0,
-        y: 30,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power3.out"
+        y: 60,
+        duration: 1.5,
+        stagger: 0.25,
+        ease: "expo.out"
       });
     }, profileRef);
 
@@ -29,7 +29,7 @@ function Profile() {
           <h1 className="fade-up">Merancang solusi digital elegan,<br/><span>baris demi baris.</span></h1>
           
           <p className="subtitle fade-up">
-            Halo, saya <strong>Muhammad Daffa Adnaputra</strong>. Seorang Junior Full Stack Web Development & UI/UX Design yang berbasis di Tulungagung, Indonesia.
+            Halo, saya <strong>Muhammad Daffa Adnaputra</strong>. Seorang Junior Full Stack Web Development & UI/UX Design.
           </p>
 
           <div className="btn-group fade-up">

@@ -11,11 +11,12 @@ function About() {
     const ctx = gsap.context(() => {
       gsap.from(".bento-card", {
         autoAlpha: 0,
-        y: 30,
-        duration: 0.8,
+        y: 50,
+        duration: 1.2,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: aboutRef.current,
-          start: "top 80%"
+          start: "top 85%"
         }
       });
     }, aboutRef);
